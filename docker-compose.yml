@@ -10,7 +10,7 @@ services:
       - "8080:8080"
     volumes:
       - "./data:/var/lib/crowdsec/data"
-      #- "./config/config.yaml:/etc/crowdsec/config.yaml:rw"
+      - "./config/dyn-config:/etc/crowdsec/:rw"
       - "./config/acquis.yaml:/etc/crowdsec/acquis.yaml:ro"
       - "./logs:/tmp/logs/:ro"
     
