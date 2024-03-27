@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  crowdsec:
+    image: crowdsecurity/crowdsec:latest
+    environment:
+      COLLECTIONS: "crowdsecurity/nginx crowdsecurity/whitelist-good-actors crowdsecurity/base-http-scenarios"
+    ports:
+      - "6060:6060"
+      - "8080:8080"
+    volumes:
+      - "./data:/var/lib/crowdsec/data"
+      #- "./config/config.yaml:/etc/crowdsec/config.yaml:rw"
+      - "./config/acquis.yaml:/etc/crowdsec/acquis.yaml:ro"
+      - "./logs:/tmp/logs/:ro"
+    
+  web:
+    image: nginx
+    ports:
+      - "9090:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/index.html:/usr/share/nginx/html/index.html:ro
+      - ./logs/nginx:/var/log/nginx/:rw
+  

@@ -1,0 +1,6 @@
+source: file
+filenames: 
+  - /tmp/logs/nginx/*.log
+labels: 
+  type: nginx
+  program: nginx 
