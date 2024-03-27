@@ -3,4 +3,11 @@ filenames:
   - /tmp/logs/nginx/*.log
 labels: 
   type: nginx
-  program: nginx 
+  program: nginx
+---
+source: file
+filenames:
+  - /tmp/logs/mysql/general.log
+labels:
+  type: mysql
+  program: mysql
