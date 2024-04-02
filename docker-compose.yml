@@ -15,7 +15,7 @@ services:
       - "./logs:/tmp/logs/:ro"
     
   web:
-    image: nginx
+    image: nginx:latest
     ports:
       - "9090:80"
     volumes:
@@ -24,7 +24,7 @@ services:
       - ./logs/nginx:/var/log/nginx/:rw
     
   mysql:
-    image: mysql
+    image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: gfBkNjGcD2HURPfxbMiGm2XciiGRbyz55KLjXx4QCXw3CuyWVChKWr3bWYu6yjwrREu4kbFfRmEMtG79S7X22MgDx
       MYSQL_DATABASE: mydatabase
